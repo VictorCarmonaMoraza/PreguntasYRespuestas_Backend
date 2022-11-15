@@ -1,9 +1,7 @@
 ﻿using BackEnd.Domain.IRepositories;
 using BackEnd.Domain.Models;
 using BackEnd.Persistence.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace BackEnd.Persistence.Repositories
@@ -19,6 +17,12 @@ namespace BackEnd.Persistence.Repositories
         {
             _context.Add(usuario);
             await _context.SaveChangesAsync();
+        }
+
+        public async  Task<bool> ValidateExistence(Usuario usuario)
+        {
+            var validateExistence = await _context.Usuarios.AnyAsync(x => x.NombreUsuario == usuario.NombreUsuario);
+            return validateExistence;
         }
     }
 }

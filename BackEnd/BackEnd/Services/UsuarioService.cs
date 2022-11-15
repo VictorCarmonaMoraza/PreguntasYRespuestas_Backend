@@ -19,5 +19,10 @@ namespace BackEnd.Services
         {
             await _usuarioRepository.SaveUser(usuario);
         }
+
+        public async Task<bool>ValidateExistence(Usuario usuario)
+        {
+            return  await _usuarioRepository.ValidateExistence(usuario);
+        }
     }
 }
