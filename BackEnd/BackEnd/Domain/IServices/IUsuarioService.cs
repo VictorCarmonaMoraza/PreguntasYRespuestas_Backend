@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BackEnd.Domain.IRepositories
+namespace BackEnd.Domain.IServices
 {
-    public interface IUsuarioRepository
+    public interface IUsuarioService
     {
         Task SaveUser(Usuario usuario);
     }
