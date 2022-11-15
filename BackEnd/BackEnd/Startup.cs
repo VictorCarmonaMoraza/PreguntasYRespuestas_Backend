@@ -1,6 +1,8 @@
 using BackEnd.Domain.IRepositories;
+using BackEnd.Domain.IServices;
 using BackEnd.Persistence.Context;
 using BackEnd.Persistence.Repositories;
+using BackEnd.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -30,6 +32,7 @@ namespace BackEnd
             {
             options.UseSqlServer(Configuration.GetConnectionString("Conexion"));
             });
+            services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddControllersWithViews();
         }

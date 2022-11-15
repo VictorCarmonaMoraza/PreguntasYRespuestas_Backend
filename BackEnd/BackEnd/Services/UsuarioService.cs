@@ -15,9 +15,9 @@ namespace BackEnd.Services
         {
             _usuarioRepository = usuarioRepository;
         }
-        public Task SaveUser(Usuario usuario)
+        public async Task SaveUser(Usuario usuario)
         {
-            throw new NotImplementedException();
+            await _usuarioRepository.SaveUser(usuario);
         }
     }
 }
