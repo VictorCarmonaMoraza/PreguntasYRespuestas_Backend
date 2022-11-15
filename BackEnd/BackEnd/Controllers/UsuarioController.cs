@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Threading.Tasks;
+using BackEnd.Utils;
 
 namespace BackEnd.Controllers
 {
@@ -27,6 +28,8 @@ namespace BackEnd.Controllers
                 {
                     return BadRequest(new { message = "El usuario " + usuario.NombreUsuario + " ya existe!" });
                 }
+                //Encriptamos
+                usuario.Password = Encriptar.EncriptarPassword(usuario.Password);
                 await _usuarioService.SaveUser(usuario);
                 return Ok(new { message = "Usuario registrado con exito" });
             }
