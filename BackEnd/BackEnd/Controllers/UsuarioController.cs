@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.Threading.Tasks;
 using BackEnd.Utils;
+using BackEnd.DTO;
 
 namespace BackEnd.Controllers
 {
@@ -36,6 +37,37 @@ namespace BackEnd.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        //Localhost:xxx/api/Usuario/CambiarPassword
+        [Route("CambiarPassword")]
+        [HttpPut]
+        public async Task<IActionResult>CambiarPassword([FromBody] CambiarPasswordDTO cambiarPasswordDTO)
+        {
+            try
+            {
+                int idUsuario = 5;
+                //Encriptamos la password
+                string passwordEncriptado = Encriptar.EncriptarPassword(cambiarPasswordDTO.passwordAnterior);
+                var usuario = await _usuarioService.ValidatePassword(idUsuario, passwordEncriptado);
+                //Es que no encontro usuario
+                if (usuario == null)
+                {
+                    return BadRequest(new { message = "La password es Incorrecta" });
+                }
+                else
+                {
+                    usuario.Password = Encriptar.EncriptarPassword(cambiarPasswordDTO.nuevaPassword);
+                    await _usuarioService.UpdatePassword(usuario);
+                    return Ok(new { message = "La password fue actualizada con exito!" });
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+                
             }
         }
     }
