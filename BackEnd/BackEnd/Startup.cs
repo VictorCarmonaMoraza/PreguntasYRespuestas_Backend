@@ -42,6 +42,13 @@ namespace BackEnd
             services.AddScoped<ILoginRepository, LoginRepository>();
 
 
+            //Cors
+            services.AddCors(options => options.AddPolicy("FrontWebApp",
+                builder => builder.AllowAnyOrigin()
+                                .AllowAnyHeader()
+                                .AllowAnyMethod()));
+
+
             services.AddControllersWithViews();
         }
 
@@ -57,6 +64,8 @@ namespace BackEnd
                 app.UseExceptionHandler("/Home/Error");
             }
             app.UseStaticFiles();
+
+            app.UseCors("FrontWebApp");
 
             app.UseRouting();
 
