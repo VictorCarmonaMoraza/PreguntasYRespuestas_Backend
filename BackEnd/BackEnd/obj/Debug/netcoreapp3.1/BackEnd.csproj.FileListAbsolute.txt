@@ -76,3 +76,13 @@ C:\Users\Victo\OneDrive\Escritorio\Proyectos 2022\Aplicacion Preguntas y Respues
 C:\Users\Victo\OneDrive\Escritorio\Proyectos 2022\Aplicacion Preguntas y Respuestas\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Victo\OneDrive\Escritorio\Proyectos 2022\Aplicacion Preguntas y Respuestas\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Victo\OneDrive\Escritorio\Proyectos 2022\Aplicacion Preguntas y Respuestas\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.csproj.AssemblyReference.cache
+C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.AssemblyInfoInputs.cache
+C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.AssemblyInfo.cs
+C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.csproj.CoreCompileInputs.cache
+C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.RazorAssemblyInfo.cache
+C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.RazorAssemblyInfo.cs
+C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.dll
+C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.pdb

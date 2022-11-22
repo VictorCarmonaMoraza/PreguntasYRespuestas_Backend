@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IsIab9Ry4f5CRH8DZ44KNmwNTfqNC1tmKu01qEsHgPfKEy12V1c4OFpDMlvjryenPIBL4v/gmQJ/3SY4wLu0pw==",
+  "dgSpecHash": "R5Zr5GXH9wXogK74bDUNIpbMHtOHwK1/dw4UQJUGsqJxOz82Oksy5/DrrQP+31lSULxzdOocoQaIrjQh8Lv+lw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Victo\\OneDrive\\Escritorio\\Proyectos 2022\\Aplicacion Preguntas y Respuestas\\BackEnd\\BackEnd\\BackEnd.csproj",
+  "projectFilePath": "C:\\Users\\Victo\\source\\repos\\VictorCarmonaMoraza\\PreguntasYRespuestas_Backend\\BackEnd\\BackEnd\\BackEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Victo\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Victo\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
