@@ -1,4 +1,6 @@
 ﻿using BackEnd.Domain.IServices;
+using BackEnd.Domain.Models;
+using BackEnd.Utils;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,30 @@ namespace BackEnd.Controllers
         public LoginController(ILoginService loginService)
         {
             _loginService = loginService;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody]Usuario usuario)
+        {
+            try
+            {
+                //Primero encriptamos contraseña
+                usuario.Password = Encriptar.EncriptarPassword(usuario.Password);
+                //Validamos el usuario
+                var user = await _loginService.ValidateUser(usuario);
+
+                if (user == null)
+                {
+                    return BadRequest(new { message = "Usuario o contraseña invalidos" });
+                }
+
+                return Ok(new { usaurio = usuario.NombreUsuario });
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
