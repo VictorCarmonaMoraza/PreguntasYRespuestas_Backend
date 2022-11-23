@@ -154,3 +154,4 @@ C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\Bac
 C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.Views.pdb
 C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.csproj.CopyComplete
 C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.genruntimeconfig.cache
+C:\Users\Victo\source\repos\VictorCarmonaMoraza\PreguntasYRespuestas_Backend\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
