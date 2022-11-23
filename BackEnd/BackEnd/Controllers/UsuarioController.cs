@@ -8,6 +8,7 @@ using BackEnd.Utils;
 using BackEnd.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Security.Claims;
 
 namespace BackEnd.Controllers
 {
@@ -50,7 +51,9 @@ namespace BackEnd.Controllers
         {
             try
             {
-                int idUsuario = 5;
+                var identity = HttpContext.User.Identity as ClaimsIdentity;
+
+                int idUsuario = JwtConfigurator.GetTokenIdUsuario(identity);
                 //Encriptamos la password
                 string passwordEncriptado = Encriptar.EncriptarPassword(cambiarPasswordDTO.passwordAnterior);
                 var usuario = await _usuarioService.ValidatePassword(idUsuario, passwordEncriptado);
