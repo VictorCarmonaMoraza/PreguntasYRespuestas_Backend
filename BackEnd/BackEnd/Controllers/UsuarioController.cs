@@ -6,6 +6,8 @@ using System;
 using System.Threading.Tasks;
 using BackEnd.Utils;
 using BackEnd.DTO;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace BackEnd.Controllers
 {
@@ -42,6 +44,7 @@ namespace BackEnd.Controllers
 
         //Localhost:xxx/api/Usuario/CambiarPassword
         [Route("CambiarPassword")]
+        [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut]
         public async Task<IActionResult>CambiarPassword([FromBody] CambiarPasswordDTO cambiarPasswordDTO)
         {

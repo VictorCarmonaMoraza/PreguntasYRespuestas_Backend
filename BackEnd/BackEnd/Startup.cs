@@ -3,16 +3,16 @@ using BackEnd.Domain.IServices;
 using BackEnd.Persistence.Context;
 using BackEnd.Persistence.Repositories;
 using BackEnd.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
 namespace BackEnd
 {
@@ -48,6 +48,19 @@ namespace BackEnd
                                 .AllowAnyHeader()
                                 .AllowAnyMethod()));
 
+            //Add Authentication
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = Configuration["Jwt:Issuer"],
+                    ValidAudience = Configuration["Jwt:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:SecretKey"])),
+                    ClockSkew = TimeSpan.Zero
+                });
 
             services.AddControllersWithViews();
         }
@@ -68,6 +81,7 @@ namespace BackEnd
             app.UseCors("FrontWebApp");
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
