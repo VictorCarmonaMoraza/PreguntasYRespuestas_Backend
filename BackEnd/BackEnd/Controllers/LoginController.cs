@@ -38,7 +38,8 @@ namespace BackEnd.Controllers
                 }
                 string tokenString = JwtConfigurator.GetToken(user, _config);
 
-                return Ok(new { usuario = usuario.NombreUsuario });
+                //return Ok(new { usuario = usuario.NombreUsuario });
+                return Ok(new { token = tokenString });
             }
             catch (Exception ex)
             {
