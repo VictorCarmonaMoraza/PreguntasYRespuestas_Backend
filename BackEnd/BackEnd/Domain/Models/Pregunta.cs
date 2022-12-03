@@ -20,6 +20,6 @@ namespace BackEnd.Domain.Models
         //Propiedades de navegacion
         public Cuestionario Cuestionario { get; set; }
 
-        public List<Respuesta> Respuesta { get; set; }
+        public List<Respuesta> listRespuestas { get; set; }
     }
 }
