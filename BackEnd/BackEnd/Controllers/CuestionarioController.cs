@@ -129,6 +129,10 @@ namespace BackEnd.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtenemos listado de cuestionarios con sus datos
+        /// </summary>
+        /// <returns></returns>
         [Route("GetListCuestionarios")]
         [HttpGet]
         public async Task<IActionResult> GetListCuestionarios()
