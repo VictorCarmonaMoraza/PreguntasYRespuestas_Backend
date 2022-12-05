@@ -45,5 +45,19 @@ namespace BackEnd.Persistence.Repositories
 
             return listCuestionario;
         }
+
+        
+        /// <summary>
+        /// Ontenemos el cuestionario por su id
+        /// </summary>
+        /// <param name="idCuestionario">id del cuestionario</param>
+        /// <returns></returns>
+        public async Task<Cuestionario> GetCuestionario(int idCuestionario)
+        {
+            //Obtenemos el cuestionario que se corresponde con el id y que este activo
+            var cuestionario = await _context.Cuestionario.Where(x => x.Id == idCuestionario && x.Activo == 1).FirstOrDefaultAsync();
+            //Retornamos el cuestionario
+            return cuestionario;
+        }
     }
 }

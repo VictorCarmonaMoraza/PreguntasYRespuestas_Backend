@@ -50,6 +50,10 @@ namespace BackEnd.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtiene los cuestionarios por el id del usuario
+        /// </summary>
+        /// <returns></returns>
         [Route("GetListCuestionarioByUser")]
         [HttpGet]
         [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
@@ -67,6 +71,26 @@ namespace BackEnd.Controllers
             catch (Exception ex)
             {
 
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Obtiene un cuestionario por su id
+        /// </summary>
+        /// <param name="idCuestionario">id del cuestionario</param>
+        /// <returns></returns>
+        [HttpGet("{idCuestionario}")]
+        public async Task<IActionResult> GetCuestionario(int idCuestionario)
+        {
+            try
+            {
+                //Obtenemos el cuestionario por su id
+                var cuestionario = await _cuestionarioService.GetCuestionario(idCuestionario);
+                return Ok(cuestionario);
+            }
+            catch (Exception ex)
+            {
                 return BadRequest(ex.Message);
             }
         }

@@ -39,5 +39,15 @@ namespace BackEnd.Services
         {
             return await _cuestionarioRepository.GetListCuestionarioByUser(idUsuario);
         }
+
+        /// <summary>
+        /// Ontenemos el cuestionario por su id
+        /// </summary>
+        /// <param name="idCuestionario">id del cuestionario</param>
+        /// <returns></returns>
+        public async Task<Cuestionario> GetCuestionario(int idCuestionario)
+        {
+            return await _cuestionarioRepository.GetCuestionario(idCuestionario);
+        }
     }
 }

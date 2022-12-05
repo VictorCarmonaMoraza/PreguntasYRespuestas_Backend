@@ -21,5 +21,12 @@ namespace BackEnd.Domain.IServices
         /// <param name="idUsuario">id del usuario</param>
         /// <returns></returns>
         Task<List<Cuestionario>> GetListCuestionarioByUser(int idUsuario);
+
+        /// <summary>
+        /// Obtiene el cuestionario por su id 
+        /// </summary>
+        /// <param name="idCuestionario">id del cuestionario</param>
+        /// <returns></returns>
+        Task<Cuestionario> GetCuestionario(int idCuestionario);
     }
 }
