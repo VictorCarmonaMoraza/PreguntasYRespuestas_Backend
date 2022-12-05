@@ -54,8 +54,12 @@ namespace BackEnd.Persistence.Repositories
         /// <returns></returns>
         public async Task<Cuestionario> GetCuestionario(int idCuestionario)
         {
-            //Obtenemos el cuestionario que se corresponde con el id y que este activo
-            var cuestionario = await _context.Cuestionario.Where(x => x.Id == idCuestionario && x.Activo == 1).FirstOrDefaultAsync();
+            //Obtenemos el cuestionario que se corresponde con el id y que este activo, tambien obtenemos el listado de preguntas 
+            //con sus respuestas
+            var cuestionario = await _context.Cuestionario.Where(x => x.Id == idCuestionario && x.Activo == 1)
+                .Include(x=>x.listPreguntas)
+                .ThenInclude(x=>x.listRespuestas)
+                .FirstOrDefaultAsync();
             //Retornamos el cuestionario
             return cuestionario;
         }
