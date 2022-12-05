@@ -21,6 +21,11 @@ namespace BackEnd.Controllers
             this._cuestionarioService = cuestionarioService;
         }
 
+        /// <summary>
+        /// Crea un cuestionario
+        /// </summary>
+        /// <param name="cuestionario">cuestionario</param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Post([FromBody] Cuestionario cuestionario)
@@ -37,6 +42,27 @@ namespace BackEnd.Controllers
 
 
                 return Ok(new { message = "Se agrego el cuestionario exitosamente" });
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [Route("GetListCuestionarioByUser")]
+        [HttpGet]
+        [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> GetListCuestionarioByUser()
+        {
+            try
+            {
+                //Obtenemos el id del usuario a traves del token
+                var identity = HttpContext.User.Identity as ClaimsIdentity;
+                int idUsuario = JwtConfigurator.GetTokenIdUsuario(identity);
+
+                var listCuestionario = await _cuestionarioService.GetListCuestionarioByUser(idUsuario);
+                return Ok(listCuestionario);
             }
             catch (Exception ex)
             {

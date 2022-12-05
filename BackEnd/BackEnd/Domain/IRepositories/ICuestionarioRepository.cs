@@ -8,6 +8,18 @@ namespace BackEnd.Domain.IRepositories
 {
     public interface ICuestionarioRepository
     {
+        /// <summary>
+        /// Crea un cuestionario
+        /// </summary>
+        /// <param name="cuestionario">cuestionario</param>
+        /// <returns></returns>
         Task CreateCuestionario(Cuestionario cuestionario);
+
+        /// <summary>
+        /// Obtiene los cuestionarios por el id del usaurio
+        /// </summary>
+        /// <param name="idUsuario">id del usuario</param>
+        /// <returns></returns>
+        Task<List<Cuestionario>> GetListCuestionarioByUser(int idUsuario);
     }
 }
