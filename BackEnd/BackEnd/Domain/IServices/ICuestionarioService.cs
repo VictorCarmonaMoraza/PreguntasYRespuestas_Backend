@@ -42,5 +42,11 @@ namespace BackEnd.Domain.IServices
         /// <param name="cuestionario">cuestionario a eliminar</param>
         /// <returns></returns>
         Task EliminarCuestionario(Cuestionario cuestionario);
+
+        /// <summary>
+        /// Obtiene un listado de Cuestionarios
+        /// </summary>
+        /// <returns></returns>
+        Task<List<Cuestionario>> GetListCuestionarios();
     }
 }

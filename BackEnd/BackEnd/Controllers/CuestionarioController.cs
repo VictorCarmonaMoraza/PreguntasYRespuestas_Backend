@@ -128,5 +128,20 @@ namespace BackEnd.Controllers
                
             }
         }
+
+        [Route("GetListCuestionarios")]
+        [HttpGet]
+        public async Task<IActionResult> GetListCuestionarios()
+        {
+            try
+            {
+                var listCuestionarios = await _cuestionarioService.GetListCuestionarios();
+                return Ok(listCuestionarios);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

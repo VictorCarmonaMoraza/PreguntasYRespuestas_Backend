@@ -91,5 +91,28 @@ namespace BackEnd.Persistence.Repositories
             //Guardamos los cambios
             await _context.SaveChangesAsync();
         }
+
+        /// <summary>
+        /// Obtiene un listado de cuestionarios por el usuario
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<Cuestionario>> GetListCuestionarios()
+        {
+            var listCuestionario = await _context.Cuestionario
+                .Where(x => x.Activo == 1)
+                .Select(o => new Cuestionario
+                {
+                    Id = o.Id,
+                    Nombre = o.Nombre,
+                    Descripcion = o.Descripcion,
+                    FechaCreacion = o.FechaCreacion,
+                    usuario = new Usuario
+                    {
+                        NombreUsuario = o.usuario.NombreUsuario
+                    }
+                }).ToListAsync();
+
+            return listCuestionario;
+        } 
     }
 }
