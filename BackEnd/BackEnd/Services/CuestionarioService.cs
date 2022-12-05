@@ -49,5 +49,25 @@ namespace BackEnd.Services
         {
             return await _cuestionarioRepository.GetCuestionario(idCuestionario);
         }
+
+        /// <summary>
+        /// Buscamos un cuestionario por su id
+        /// </summary>
+        /// <param name="idCuestionario">id del cuestionario a buscar</param>
+        /// <returns></returns>
+        public async Task<Cuestionario> BuscarCuestionario(int idCuestionario)
+        {
+            return await _cuestionarioRepository.BuscarCuestionario(idCuestionario);
+        }
+
+        /// <summary>
+        /// Eliminamos un cuestionario
+        /// </summary>
+        /// <param name="cuestionario">cuestionario a eliminar</param>
+        /// <returns></returns>
+        public async Task EliminarCuestionario(Cuestionario cuestionario)
+        {
+            await _cuestionarioRepository.EliminarCuestionario(cuestionario);
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace BackEnd.Persistence.Repositories
 
         
         /// <summary>
-        /// Ontenemos el cuestionario por su id
+        /// Obtenemos el cuestionario por su id
         /// </summary>
         /// <param name="idCuestionario">id del cuestionario</param>
         /// <returns></returns>
@@ -62,6 +62,34 @@ namespace BackEnd.Persistence.Repositories
                 .FirstOrDefaultAsync();
             //Retornamos el cuestionario
             return cuestionario;
+        }
+
+        /// <summary>
+        /// Buscamos un cuestionario por su id
+        /// </summary>
+        /// <param name="idCuestionario">id del cuestionario a buscar</param>
+        /// <returns></returns>
+        public async Task<Cuestionario> BuscarCuestionario(int idCuestionario)
+        {
+            //Obtenemos el cuestionario por su id y que este activo
+            var cuestionario = await _context.Cuestionario.Where(x => x.Id == idCuestionario && x.Activo == 1).FirstOrDefaultAsync();
+            //Retornamos el cuestionario 
+            return cuestionario;
+        }
+
+        /// <summary>
+        /// Eliminamos un cuestionario
+        /// </summary>
+        /// <param name="cuestionario">cuestionario a eliminar</param>
+        /// <returns></returns>
+        public async Task EliminarCuestionario(Cuestionario cuestionario)
+        {
+            //Hacemos borrado logico por lo cual ponemos el formulario en inactivo
+            cuestionario.Activo = 0;
+            //Modificamos el valor del formulario
+            _context.Entry(cuestionario).State = EntityState.Modified;
+            //Guardamos los cambios
+            await _context.SaveChangesAsync();
         }
     }
 }
