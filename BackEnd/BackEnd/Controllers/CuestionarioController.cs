@@ -94,5 +94,39 @@ namespace BackEnd.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        /// <summary>
+        /// Borrado logico para el borrado de un cuestionario
+        /// </summary>
+        /// <param name="idCuestionario">id del cuestionario a borrar</param>
+        /// <returns></returns>
+        [HttpDelete("{idCuestionario}")]
+        [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> Delete(int idCuestionario)
+        {
+            try
+            {
+
+
+                //Obtenemos el id del usuario a traves del token
+                var identity = HttpContext.User.Identity as ClaimsIdentity;
+                int idUsuario = JwtConfigurator.GetTokenIdUsuario(identity);
+
+                //Comporbamos si el cuestionario existe
+                var cuestionario = await _cuestionarioService.BuscarCuestionario(idCuestionario, idUsuario);
+
+                if (cuestionario == null)
+                {
+                    return BadRequest(new{ message = "No se encontroningun cuestionario" });
+                }
+                await _cuestionarioService.EliminarCuestionario(cuestionario);
+                return Ok(new { message = "Elc cuestionario fue eliminado con exito" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+               
+            }
+        }
     }
 }

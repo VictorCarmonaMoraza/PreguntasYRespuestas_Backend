@@ -34,7 +34,7 @@ namespace BackEnd.Domain.IRepositories
         /// </summary>
         /// <param name="idCuestionario">id del cuestionario</param>
         /// <returns></returns>
-        Task<Cuestionario> BuscarCuestionario(int idCuestionario);
+        Task<Cuestionario> BuscarCuestionario(int idCuestionario, int idUsuario);
 
         /// <summary>
         /// Elimina un cuestionario

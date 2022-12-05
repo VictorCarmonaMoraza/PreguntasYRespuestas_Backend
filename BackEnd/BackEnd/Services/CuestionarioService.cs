@@ -55,9 +55,9 @@ namespace BackEnd.Services
         /// </summary>
         /// <param name="idCuestionario">id del cuestionario a buscar</param>
         /// <returns></returns>
-        public async Task<Cuestionario> BuscarCuestionario(int idCuestionario)
+        public async Task<Cuestionario> BuscarCuestionario(int idCuestionario, int idUsuario)
         {
-            return await _cuestionarioRepository.BuscarCuestionario(idCuestionario);
+            return await _cuestionarioRepository.BuscarCuestionario(idCuestionario, idUsuario);
         }
 
         /// <summary>
