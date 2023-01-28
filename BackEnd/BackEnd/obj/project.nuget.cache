@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5s5ysIc3NRXXhMmFMmqS72/8sWfoR9HikRpNkfEdyo7QxTgIuj0/MetsHxGetiP0A7v3zI0vMWulYmTIShSpkQ==",
+  "dgSpecHash": "SlUA8bHmDOuM/EeodPEYGj/j0VIfOMTl+SZaUjrhGfrH8qjtlVIrkjR/GGtsCq6apiPB/p4h4MMkokSF2MZtSQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Victo\\source\\repos\\VictorCarmonaMoraza\\PreguntasYRespuestas_Backend\\BackEnd\\BackEnd\\BackEnd.csproj",
+  "projectFilePath": "C:\\Users\\Victo\\Source\\Repos\\VictorCarmonaMoraza\\PreguntasYRespuestas_Backend\\BackEnd\\BackEnd\\BackEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Victo\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.8\\microsoft.aspnetcore.authentication.jwtbearer.3.1.8.nupkg.sha512",
     "C:\\Users\\Victo\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.8\\microsoft.aspnetcore.jsonpatch.3.1.8.nupkg.sha512",

@@ -95,6 +95,55 @@ namespace BackEnd.Migrations
                     b.ToTable("Respuesta");
                 });
 
+            modelBuilder.Entity("BackEnd.Domain.Models.RespuestaCuestionario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Activo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CuestionarioId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NombreParticipante")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CuestionarioId");
+
+                    b.ToTable("RespuestaCuestionario");
+                });
+
+            modelBuilder.Entity("BackEnd.Domain.Models.RespuestaCuestionarioDetalle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("RespuestaCuestionarioId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RespuestaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RespuestaCuestionarioId");
+
+                    b.HasIndex("RespuestaId");
+
+                    b.ToTable("RespuestaCuestionarioDetalles");
+                });
+
             modelBuilder.Entity("BackEnd.Domain.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -127,7 +176,7 @@ namespace BackEnd.Migrations
             modelBuilder.Entity("BackEnd.Domain.Models.Pregunta", b =>
                 {
                     b.HasOne("BackEnd.Domain.Models.Cuestionario", "Cuestionario")
-                        .WithMany("Pregunta")
+                        .WithMany("listPreguntas")
                         .HasForeignKey("CuestionarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -136,8 +185,32 @@ namespace BackEnd.Migrations
             modelBuilder.Entity("BackEnd.Domain.Models.Respuesta", b =>
                 {
                     b.HasOne("BackEnd.Domain.Models.Pregunta", "Pregunta")
-                        .WithMany("Respuesta")
+                        .WithMany("listRespuestas")
                         .HasForeignKey("PreguntaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("BackEnd.Domain.Models.RespuestaCuestionario", b =>
+                {
+                    b.HasOne("BackEnd.Domain.Models.Cuestionario", "Cuestionario")
+                        .WithMany()
+                        .HasForeignKey("CuestionarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("BackEnd.Domain.Models.RespuestaCuestionarioDetalle", b =>
+                {
+                    b.HasOne("BackEnd.Domain.Models.RespuestaCuestionario", "RespuestaCuestionario")
+                        .WithMany("ListRtaCuestionarioDetalle")
+                        .HasForeignKey("RespuestaCuestionarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BackEnd.Domain.Models.Respuesta", "Respuesta")
+                        .WithMany()
+                        .HasForeignKey("RespuestaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
