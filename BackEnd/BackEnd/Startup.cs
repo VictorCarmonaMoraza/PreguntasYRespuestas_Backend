@@ -37,13 +37,13 @@ namespace BackEnd
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<ILoginService, LoginService>();
             services.AddScoped<ICuestionarioService, CuestionarioService>();
+            services.AddScoped<IRespuestaCuestionarioService, RespuestaCuestionarioService>();
 
             //Repositories
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<ICuestionarioRepository, CuestionarioRepository>();
-            
-
+            services.AddScoped<IRespuestaCuestionarioRepository,RespuestaCuestionarioRepository>();
 
             //Cors
             services.AddCors(options => options.AddPolicy("FrontWebApp",
