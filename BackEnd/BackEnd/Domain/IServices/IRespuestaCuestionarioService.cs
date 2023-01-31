@@ -11,5 +11,7 @@ namespace BackEnd.Domain.IServices
         Task<List<RespuestaCuestionario>> ListRespuestaCuestionario(int idCuestionario, int idUsuario);
 
         Task<RespuestaCuestionario> BuscarRespuestaCuestionario(int idRtaCuestionario, int idUsuario);
+
+        Task EliminarRespuestaCuestionario(RespuestaCuestionario respuestaCuestionario);
     }
 }

@@ -77,7 +77,8 @@ namespace BackEnd.Controllers
                     return BadRequest(new { message ="Error al buscar la respuesta al cuestionario"});
                 }
 
-                await _respuestaCuestionarioService
+                await _respuestaCuestionarioService.EliminarRespuestaCuestionario(respuestaCuestionario);
+                return Ok(new {message ="La respuesta al cuestionario fue eliminada con exito!"});
             }
             catch (Exception ex)
             {

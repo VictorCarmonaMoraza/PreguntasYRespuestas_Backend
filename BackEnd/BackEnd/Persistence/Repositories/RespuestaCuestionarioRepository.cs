@@ -38,5 +38,12 @@ namespace BackEnd.Persistence.Repositories
             && x.Cuestionario.UsuarioId == idUsuario && x.Activo ==1).FirstOrDefaultAsync();
             return respuestaCuestionario;
         }
+
+        public async Task EliminarRespuestaCuestionario(RespuestaCuestionario respuestaCuestionario)
+        {
+            respuestaCuestionario.Activo = 0;
+            _context.Entry(respuestaCuestionario).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
     }
 }
