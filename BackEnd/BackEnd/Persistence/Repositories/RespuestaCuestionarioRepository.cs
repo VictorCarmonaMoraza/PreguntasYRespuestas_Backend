@@ -45,5 +45,12 @@ namespace BackEnd.Persistence.Repositories
             _context.Entry(respuestaCuestionario).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
+
+        public async Task<int> GetIdCuestionarioByIdRespuesta(int idRespuestaCuestionario)
+        {
+            var cuestionario = await _context.RespuestaCuestionario.Where(x=>x.Id == idRespuestaCuestionario
+            && x.Activo==1).FirstOrDefaultAsync();
+            return cuestionario.CuestionarioId;
+        }
     }
 }

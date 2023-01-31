@@ -25,6 +25,11 @@ namespace BackEnd.Services
              await _respuestaCuestionarioRepository.EliminarRespuestaCuestionario(respuestaCuestionario);
         }
 
+        public async Task<int> GetIdCuestionarioByIdRespuesta(int idRespuestaCuestionario)
+        {
+            return await _respuestaCuestionarioRepository.GetIdCuestionarioByIdRespuesta(idRespuestaCuestionario);
+        }
+
         public async Task<List<RespuestaCuestionario>> ListRespuestaCuestionario(int idCuestionario, int idUsuario)
         {
             return await _respuestaCuestionarioRepository.ListRespuestaCuestionario(idCuestionario,idUsuario);

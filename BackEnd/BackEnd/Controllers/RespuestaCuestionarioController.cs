@@ -96,12 +96,13 @@ namespace BackEnd.Controllers
             try
             {
                 //Obtener el idCuestionario dado un idRespuesta
-
+                int idCuestionario = await _respuestaCuestionarioService.GetIdCuestionarioByIdRespuesta(idRespuesta);
 
                 //Buscamos el cuestionario
-                var cuestionario = _cuestionarioService.GetCuestionario(idCuestionario);
+                var cuestionario = await _cuestionarioService.GetCuestionario(idCuestionario);
 
                 //Buscamos las respuestas seleccionadas dado un idRespuesta
+                return Ok();
             }
             catch (Exception ex)
             {
