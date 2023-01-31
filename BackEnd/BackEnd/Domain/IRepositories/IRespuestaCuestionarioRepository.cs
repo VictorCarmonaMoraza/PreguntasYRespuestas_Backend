@@ -9,5 +9,7 @@ namespace BackEnd.Domain.IRepositories
         Task SaveRespuestaCuestionario(RespuestaCuestionario respuestaCuestionario);
 
         Task<List<RespuestaCuestionario>> ListRespuestaCuestionario(int idCuestionario, int idUsuario);
+
+        Task<RespuestaCuestionario> BuscarRespuestaCuestionario(int idRtaCuestionario, int idUsuario);
     }
 }

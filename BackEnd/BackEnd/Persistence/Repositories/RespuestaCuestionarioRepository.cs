@@ -31,5 +31,12 @@ namespace BackEnd.Persistence.Repositories
             && x.Activo==1 && x.Cuestionario.UsuarioId==idUsuario).OrderByDescending(x=>x.Fecha).ToListAsync();
             return listRespuestaCuestionario;
         }
+
+        public async Task<RespuestaCuestionario> BuscarRespuestaCuestionario(int idRtaCuestionario, int idUsuario)
+        {
+            var respuestaCuestionario = await _context.RespuestaCuestionario.Where(x=>x.Id == idRtaCuestionario
+            && x.Cuestionario.UsuarioId == idUsuario && x.Activo ==1).FirstOrDefaultAsync();
+            return respuestaCuestionario;
+        }
     }
 }

@@ -37,7 +37,7 @@ namespace BackEnd.Controllers
         }
 
         [HttpGet("{idCuestionario}")]
-        [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Get(int idCuestionario)
         {
             try
@@ -46,12 +46,38 @@ namespace BackEnd.Controllers
                 int idUsuario = JwtConfigurator.GetTokenIdUsuario(identity);
 
                 var listRespuestasCuestionario = await _respuestaCuestionarioService.ListRespuestaCuestionario(idCuestionario, idUsuario);
-                if (listRespuestasCuestionario == null) 
+                if (listRespuestasCuestionario == null)
                 {
                     return BadRequest(new { message = "Error al buscar el listado de respuestas" });
                 }
 
                 return Ok(listRespuestasCuestionario);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                var identity = HttpContext.User.Identity as ClaimsIdentity;
+                int idUsuario = JwtConfigurator.GetTokenIdUsuario(identity);
+
+                //Creamos un metodo para obtener la respuesta al cuestionario
+                var respuestaCuestionario = await _respuestaCuestionarioService.BuscarRespuestaCuestionario(id,idUsuario);
+
+                if (respuestaCuestionario == null)
+                {
+                    return BadRequest(new { message ="Error al buscar la respuesta al cuestionario"});
+                }
+
+                await _respuestaCuestionarioService
             }
             catch (Exception ex)
             {
