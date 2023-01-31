@@ -102,7 +102,8 @@ namespace BackEnd.Controllers
                 var cuestionario = await _cuestionarioService.GetCuestionario(idCuestionario);
 
                 //Buscamos las respuestas seleccionadas dado un idRespuesta
-                return Ok();
+                var listRespuestas = await _respuestaCuestionarioService.GetListRespuestas(idRespuesta);
+                return Ok(new {cuestionario = cuestionario, respuestas = listRespuestas});
             }
             catch (Exception ex)
             {

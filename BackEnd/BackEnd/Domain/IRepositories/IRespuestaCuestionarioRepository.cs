@@ -15,5 +15,7 @@ namespace BackEnd.Domain.IRepositories
         Task EliminarRespuestaCuestionario(RespuestaCuestionario respuestaCuestionario);
 
         Task<int> GetIdCuestionarioByIdRespuesta(int idRespuestaCuestionario);
+
+        Task<List<RespuestaCuestionarioDetalle>> GetListRespuestas(int idRespuestaCuestionario);
     }
 }

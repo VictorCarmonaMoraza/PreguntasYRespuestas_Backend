@@ -52,5 +52,15 @@ namespace BackEnd.Persistence.Repositories
             && x.Activo==1).FirstOrDefaultAsync();
             return cuestionario.CuestionarioId;
         }
+
+        public async Task<List<RespuestaCuestionarioDetalle>> GetListRespuestas(int idRespuestaCuestionario)
+        {
+            var listRespuestas = await _context.RespuestaCuestionarioDetalles.Where(x=>x.RespuestaCuestionarioId == idRespuestaCuestionario)
+                .Select(x=>new RespuestaCuestionarioDetalle
+                {
+                    RespuestaId= x.RespuestaId,
+                }).ToListAsync();
+            return listRespuestas;
+        }
     }
 }

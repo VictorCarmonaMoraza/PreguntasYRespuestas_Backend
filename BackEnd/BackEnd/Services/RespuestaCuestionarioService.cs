@@ -40,6 +40,11 @@ namespace BackEnd.Services
              await _respuestaCuestionarioRepository.SaveRespuestaCuestionario(respuestaCuestionario);
         }
 
+        public async Task<List<RespuestaCuestionarioDetalle>> GetListRespuestas(int idRespuestaCuestionario)
+        {
+            return await _respuestaCuestionarioRepository.GetListRespuestas(idRespuestaCuestionario);
+        }
+
 
     }
 }
