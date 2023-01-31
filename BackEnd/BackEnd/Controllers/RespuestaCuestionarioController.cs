@@ -16,10 +16,12 @@ namespace BackEnd.Controllers
     public class RespuestaCuestionarioController : ControllerBase
     {
         private readonly IRespuestaCuestionarioService _respuestaCuestionarioService;
+        private readonly ICuestionarioService _cuestionarioService;
 
-        public RespuestaCuestionarioController(IRespuestaCuestionarioService respuestaCuestionarioService)
+        public RespuestaCuestionarioController(IRespuestaCuestionarioService respuestaCuestionarioService, ICuestionarioService cuestionarioService)
         {
             _respuestaCuestionarioService = respuestaCuestionarioService;
+            _cuestionarioService = cuestionarioService;
         }
 
         [HttpPost]
@@ -79,6 +81,27 @@ namespace BackEnd.Controllers
 
                 await _respuestaCuestionarioService.EliminarRespuestaCuestionario(respuestaCuestionario);
                 return Ok(new {message ="La respuesta al cuestionario fue eliminada con exito!"});
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [Route("GetCuestionarioByIdRespuesta/{idRespuesta}")]
+        [HttpGet]
+        [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult>GetCuestionarioByIdRespuesta(int idRespuesta)
+        {
+            try
+            {
+                //Obtener el idCuestionario dado un idRespuesta
+
+
+                //Buscamos el cuestionario
+                var cuestionario = _cuestionarioService.GetCuestionario(idCuestionario);
+
+                //Buscamos las respuestas seleccionadas dado un idRespuesta
             }
             catch (Exception ex)
             {
